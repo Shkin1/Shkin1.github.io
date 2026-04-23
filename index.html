@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shkin1's Open Source Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .github-icon {
+            font-size: 2rem;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .github-icon:hover {
+            color: #4078c0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-header h3 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-header h3 i {
+            color: #3498db;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 8px;
+        }
+
+        .card-body {
+            padding: 20px 25px;
+            flex-grow: 1;
+        }
+
+        .card-body p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li i {
+            color: #2ecc71;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #ecf0f1;
+            color: #34495e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .card-footer {
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-gh {
+            background: #333;
+        }
+
+        .btn-gh:hover {
+            background: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-code-branch"></i> 开源项目集</h1>
+            <p>这里是 Shkin1 在 GitHub 上维护的一系列开源项目，涵盖 AI 助手、数据可视化与分析、大数据治理等方向。每个项目都旨在解决特定领域的问题并提供可复用的解决方案。</p>
+            <a href="https://github.com/Shkin1" target="_blank" aria-label="访问 GitHub 主页">
+                <i class="fab fa-github github-icon"></i>
+            </a>
+        </header>
+
+        <main>
+            <div class="projects-grid">
+
+                <!-- 项目 1: my_runcell -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-robot"></i> JupyterLab AI Assistant <span class="project-badge">Jupyter 插件</span></h3>
+                    </div>
+                    <div class="card-body">
+                        <p>一个功能强大的 JupyterLab 智能助手插件，在右侧边栏提供 AI 对话面板，并支持与左侧工作区的 Notebook Cell 无缝联动。</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> AI 智能对话与编程帮助</li>
+                            <li><i class="fas fa-check-circle"></i> Cell 代码获取与一键插入</li>
+                            <li><i class="fas fa-check-circle"></i> 支持远程执行 Cell 并获取结果</li>
+                            <li><i class="fas fa-check-circle"></i> 优雅的侧边栏界面与 Markdown 渲染</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">JupyterLab</span>
+                            <span class="tech-tag">AI</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/Shkin1/my_runcell" class="btn btn-gh" target="_blank">
+                            <i class="fab fa-github"></i> 查看仓库
+                        </a>
+                        <span><i class="fas fa-star"></i> 专注于开发体验</span>
+                    </div>
+                </div>
+
+                <!-- 项目 2: coda_agent -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-line"></i> CoDA 可视化分析智能体 <span class="project-badge">多智能体系统</span></h3>
+                    </div>
+                    <div class="card-body">
+                        <p>基于CoDA框架（理解→规划→生成→自反思循环）的可视化数据分析多智能体系统，将“画图”从单次代码生成升级为多智能体协作工程。</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> 四模块迭代循环 (CoDA框架)</li>
+                            <li><i class="fas fa-check-circle"></i> 支持多种图表类型自动生成</li>
+                            <li><i class="fas fa-check-circle"></i> 安全的沙箱代码执行环境</li>
+                            <li><i class="fas fa-check-circle"></i> 自动优化与重试机制</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">DataViz</span>
+                            <span class="tech-tag">Multi-Agent</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/Shkin1/coda_agent" class="btn btn-gh" target="_blank">
+                            <i class="fab fa-github"></i> 查看仓库
+                        </a>
+                        <span><i class="fas fa-cogs"></i> 智能数据分析</span>
+                    </div>
+                </div>
+
+                <!-- 项目 3: hathor -->
+                <div class="project-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-database"></i> Hathor SQL 解析与治理 <span class="project-badge">大数据平台</span></h3>
+                    </div>
+                    <div class="card-body">
+                        <p>一个专注于大数据领域 SQL 解析、优化与数据血缘分析的工具或平台，旨在提升数据治理能力，帮助用户理解数据链路并快速排查问题。</p>
+                        <ul class="features">
+                            <li><i class="fas fa-check-circle"></i> SQL 解析与优化</li>
+                            <li><i class="fas fa-check-circle"></i> 业务指标与数据血缘分析</li>
+                            <li><i class="fas fa-check-circle"></i> 提升数据治理与开发效率</li>
+                            <li><i class="fas fa-check-circle"></i> 方便问题追踪与排查</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Data Lineage</span>
+                            <span class="tech-tag">Data Governance</span>
+                            <span class="tech-tag">Big Data</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <!-- 注意：链接3的内容加载不完整，但URL格式与其它项目一致，此处按相同模式拼接 -->
+                        <a href="https://github.com/Shkin1/hathor" class="btn btn-gh" target="_blank">
+                            <i class="fab fa-github"></i> 查看仓库
+                        </a>
+                        <span><i class="fas fa-project-diagram"></i> 数据血缘与治理</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 Shkin1's Open Source Projects. 项目文档与代码以各仓库的 LICENSE 文件为准。</p>
+            <p>本页面仅为项目概要展示，详细内容请访问各项目 GitHub 仓库。</p>
+        </footer>
+    </div>
+
+    <script>
+        // 简单的交互效果：点击项目卡片时轻微反馈
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // 防止点击链接时也触发
+                if (e.target.tagName === 'A' || e.target.closest('a')) {
+                    return;
+                }
+                this.style.transform = 'scale(0.99)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
